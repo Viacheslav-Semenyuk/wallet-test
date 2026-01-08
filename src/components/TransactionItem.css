@@ -1,0 +1,136 @@
+.transaction-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  background-color: var(--bg-card);
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.transaction-item:last-child {
+  border-bottom: none;
+}
+
+.transaction-item:active {
+  background-color: #f9f9f9;
+}
+
+.transaction-icon {
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+}
+
+.merchant-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.apple-icon {
+  background-color: #e5e5e7;
+  color: var(--text-primary);
+}
+
+.payment-icon {
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);
+  color: white;
+}
+
+.payment-icon svg {
+  font-size: 1.25rem;
+}
+
+.ikea-icon {
+  background-color: #0058a3;
+  color: white;
+}
+
+.target-icon {
+  background-color: #cc0000;
+  color: white;
+}
+
+.default-icon {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.transaction-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.transaction-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+}
+
+.transaction-merchant {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.transaction-amount-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.125rem;
+}
+
+.transaction-amount {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.transaction-amount.credit {
+  color: var(--positive-color);
+}
+
+.transaction-amount.debit {
+  color: var(--text-primary);
+}
+
+.transaction-cashback {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+}
+
+.transaction-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.transaction-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.transaction-date-location {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.3;
+}
+
+.transaction-arrow {
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  padding-top: 0.25rem;
+}
