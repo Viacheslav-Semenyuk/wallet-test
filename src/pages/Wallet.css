@@ -1,0 +1,15 @@
+.wallet-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+.wallet-content {
+  max-width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
