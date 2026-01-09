@@ -19,13 +19,13 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
     switch (transaction.iconType) {
       case 'apple':
         return (
-          <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="white"/>
           </svg>
         )
       case 'payment':
         return (
-          <svg viewBox="0 0 24 24" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
             <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" fill="white"/>
           </svg>
         )
@@ -58,12 +58,22 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
         {getIconContent()}
       </div>
       <div className="transaction-details">
-        <div className="transaction-main-info">
+        <div className="transaction-top-row">
           <div className="transaction-merchant">{transaction.merchant}</div>
+          <div className="transaction-amount-right">
+            <div className={`transaction-amount ${isCredit ? 'credit' : 'debit'}`}>
+              {isCredit ? '+' : ''}${transaction.amount.toFixed(2)}
+            </div>
+          </div>
+        </div>
+        <div className="transaction-description-row">
           <div className="transaction-description">
             {transaction.isPending && <span className="pending-prefix">Pending · </span>}
             {transaction.description}
           </div>
+          {transaction.cashbackPercent && (
+            <div className="transaction-cashback">{transaction.cashbackPercent}%</div>
+          )}
         </div>
         <div className="transaction-meta">
           {transaction.authorizedUser && formattedDate ? (
@@ -78,14 +88,6 @@ const TransactionItem = ({ transaction }: TransactionItemProps) => {
             <span className="transaction-date">{formattedDate}</span>
           ) : null}
         </div>
-      </div>
-      <div className="transaction-amount-section">
-        <div className={`transaction-amount ${isCredit ? 'credit' : 'debit'}`}>
-          {isCredit ? '+' : ''}${transaction.amount.toFixed(2)}
-        </div>
-        {transaction.cashbackPercent && (
-          <div className="transaction-cashback">{transaction.cashbackPercent}%</div>
-        )}
       </div>
       <div className="transaction-chevron">
         <FontAwesomeIcon icon={faChevronRight} />

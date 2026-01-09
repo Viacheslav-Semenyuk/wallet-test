@@ -2,28 +2,30 @@
   width: 100%;
   min-height: 100vh;
   background-color: var(--bg-primary);
-  padding: 1rem;
-  padding-bottom: 2rem;
+  padding: var(--spacing-lg);
+  padding-bottom: var(--spacing-2xl);
 }
 
 .transaction-detail-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--spacing-lg);
 }
 
 .back-button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: var(--spacing-sm);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-primary);
   font-size: 1.25rem;
-  transition: opacity 0.2s;
+  min-width: var(--tap-min-size);
+  min-height: var(--tap-min-size);
+  transition: opacity 0.2s ease;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
 .back-button:hover {
@@ -34,55 +36,202 @@
   opacity: 0.5;
 }
 
-.transaction-detail-header h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 0;
-}
-
 .transaction-detail-content {
   width: 100%;
 }
 
 .transaction-detail-card {
   background-color: var(--bg-card);
-  border-radius: 12px;
-  padding: 1.5rem;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
 }
 
-.detail-section {
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--border-color);
+.detail-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: var(--spacing-lg);
 }
 
-.detail-section:last-child {
-  border-bottom: none;
+.detail-icon {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
 }
 
-.detail-label {
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-  font-weight: 400;
+/* Apple icon - dark background with white logo */
+.detail-icon-apple {
+  background-color: #1a1a1a;
 }
 
-.detail-value {
-  font-size: 1rem;
-  color: var(--text-primary);
-  font-weight: 500;
+.detail-icon-apple svg {
+  width: 52px;
+  height: 52px;
+  display: block;
 }
 
-.detail-amount {
+.detail-icon-apple svg path {
+  fill: white;
+}
+
+/* Payment icon - gradient background with white Apple logo */
+.detail-icon-payment {
+  background: linear-gradient(to right, #9d6bf5 0%, #ff9500 100%);
+}
+
+.detail-icon-payment svg {
+  width: 52px;
+  height: 52px;
+  display: block;
+}
+
+.detail-icon-payment svg path {
+  fill: white;
+}
+
+/* IKEA icon - blue background with yellow text */
+.detail-icon-ikea {
+  background-color: #0058A3;
+}
+
+.detail-ikea-text {
+  font-family: 'Futura', 'Futura-Medium', 'Futura-Medium', 'Futura PT', 'Century Gothic', 'Trebuchet MS', 'Arial Narrow', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #FFD700;
+  letter-spacing: 1.4px;
+  line-height: 1;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Target icon - concentric circles: red, white, red, white center */
+.detail-icon-target {
+  background-color: white;
+  position: relative;
+}
+
+.detail-target-icon-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-target-ring {
+  position: absolute;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.detail-target-ring-outer-red {
+  width: 72px;
+  height: 72px;
+  background-color: #cc0000;
+  border: none;
+}
+
+.detail-target-ring-white {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  border: 10px solid white;
+  box-sizing: border-box;
+}
+
+.detail-target-ring-inner-red {
+  width: 24px;
+  height: 24px;
+  background-color: #cc0000;
+  border: none;
+}
+
+.detail-target-center-white {
+  width: 16px;
+  height: 16px;
+  background-color: #cc0000;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.detail-icon-fallback {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+}
+
+.detail-merchant-name {
   font-size: 1.5rem;
   font-weight: 600;
+  color: #000;
+  text-align: center;
+  letter-spacing: -0.019em;
 }
 
-.detail-amount.credit {
+.detail-amount-large {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  color: #000;
+  letter-spacing: -0.026em;
+}
+
+.detail-amount-large.credit {
   color: var(--positive-color);
 }
 
-.detail-amount.debit {
-  color: var(--text-primary);
+.detail-amount-large.debit {
+  color: #000;
+}
+
+.detail-info-section {
+  width: 100%;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.detail-info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+}
+
+.detail-info-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 400;
+  flex-shrink: 0;
+  letter-spacing: -0.011em;
+}
+
+.detail-info-value {
+  font-size: 0.875rem;
+  color: #000;
+  font-weight: 400;
+  text-align: right;
+  flex: 1;
+  letter-spacing: -0.011em;
 }

@@ -11,7 +11,6 @@
 export function getSeasonAndDayIndex(date: Date = new Date()): { season: number; dayIndex: number } {
   const year = date.getFullYear()
   const month = date.getMonth() // 0-11
-  const dayOfMonth = date.getDate() // 1-31
   
   // Determine season (quarter)
   let season: number
