@@ -8,9 +8,13 @@ const Wallet = () => {
   return (
     <div className="wallet-page">
       <div className="wallet-content">
-        <BalanceCard />
-        <PaymentStatusCard />
-        <DailyPointsCard />
+        <div className="cards-grid">
+          <div className="cards-left-group">
+            <BalanceCard />
+            <DailyPointsCard />
+          </div>
+          <PaymentStatusCard />
+        </div>
         <TransactionList />
       </div>
     </div>

@@ -1,18 +1,21 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheck } from '@fortawesome/free-solid-svg-icons'
+import { useState, useEffect } from 'react'
+import { getDailyPoints } from '../utils/dailyPoints'
 import './Card.css'
 
 const DailyPointsCard = () => {
+  const [points, setPoints] = useState('0')
+
+  useEffect(() => {
+    // Calculate daily points based on current season and day index
+    const calculatedPoints = getDailyPoints()
+    setPoints(calculatedPoints)
+  }, [])
+
   return (
     <div className="card points-card">
       <div className="card-content">
         <div className="points-label">Daily Points</div>
-        <div className="points-container">
-          <div className="points-icon-wrapper">
-            <FontAwesomeIcon icon={faCheck} className="points-icon" />
-          </div>
-          <div className="points-amount">456K</div>
-        </div>
+        <div className="points-amount">{points}</div>
       </div>
     </div>
   )

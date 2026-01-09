@@ -1,0 +1,88 @@
+.transaction-detail-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  padding: 1rem;
+  padding-bottom: 2rem;
+}
+
+.transaction-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  transition: opacity 0.2s;
+}
+
+.back-button:hover {
+  opacity: 0.7;
+}
+
+.back-button:active {
+  opacity: 0.5;
+}
+
+.transaction-detail-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.transaction-detail-content {
+  width: 100%;
+}
+
+.transaction-detail-card {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.detail-section {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.detail-section:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  font-weight: 400;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.detail-amount {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.detail-amount.credit {
+  color: var(--positive-color);
+}
+
+.detail-amount.debit {
+  color: var(--text-primary);
+}

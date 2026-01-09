@@ -1,8 +1,8 @@
 .card {
   background-color: var(--bg-card);
   border-radius: 12px;
-  padding: 1.25rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  padding: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .card-content {
@@ -12,69 +12,116 @@
 /* Balance Card */
 .balance-card {
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .balance-main {
-  margin-bottom: 0.5rem;
 }
 
 .balance-label {
   font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.25rem;
+  color: #000;
   font-weight: 400;
 }
 
 .balance-amount {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: #000;
   line-height: 1.2;
 }
 
 .balance-available {
   font-size: 0.875rem;
   color: var(--text-secondary);
-  margin-top: 0.5rem;
+  margin-top: auto;
+  white-space: nowrap;
 }
 
 /* Payment Status Card */
 .payment-status-card {
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+}
+
+.payment-status-card .card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  flex: 1;
+  height: 100%;
 }
 
 .payment-status-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.25rem;
+  color: #000;
 }
 
 .payment-status-message {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1;
+}
+
+.payment-status-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #e5e5e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.payment-status-icon {
+  font-size: 1.25rem;
+  color: #000;
 }
 
 /* Daily Points Card */
 .points-card {
   margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .points-label {
   font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 1rem;
+  color: #000;
+  margin-bottom: 0;
   font-weight: 400;
 }
 
-.points-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.points-amount {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  line-height: 1.2;
+  margin-top: auto;
 }
 
-.points-icon-wrapper {
+/* Empty Status Card */
+.empty-status-card {
+  margin-bottom: 0;
+}
+
+.empty-status-card .card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+}
+
+.empty-status-icon-wrapper {
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -82,17 +129,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-}
-
-.points-icon {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-}
-
-.points-amount {
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1.2;
 }
