@@ -87,7 +87,7 @@ export function calculateDailyPoints(dayIndex: number): number {
  */
 export function formatPoints(points: number): string {
   if (points >= 1000) {
-    return `${Math.round(points / 1000)}k`
+    return `${Math.round(points / 1000)}K`
   }
   return points.toString()
 }

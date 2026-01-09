@@ -20,8 +20,8 @@ const TransactionList = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
   useEffect(() => {
-    // Load transactions from JSON file
-    setTransactions(transactionsData as Transaction[])
+    // Load transactions from JSON file (limit to 10)
+    setTransactions((transactionsData as Transaction[]).slice(0, 10))
   }, [])
 
   return (
